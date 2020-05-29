@@ -143,7 +143,7 @@ form.addEventListener('submit',function(e){
 		$password=$_POST["password"];
 		$query2="SELECT * FROM Utilisateur where login='".$login."' AND password='".$password."'";
 		$result=mysqli_query($conn,$query2);
-			if ($result===true)
+			if (mysqli_num_rows($result)==1)
 			{
 				if ($login=='admin' && $password=='admin')
 				{

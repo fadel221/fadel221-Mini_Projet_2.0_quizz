@@ -1,0 +1,448 @@
+body
+{
+position:absolute; 
+width:100%;
+height: 110%;
+box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.12);
+}
+#logo-projet
+{
+position: absolute;
+width: 75px;
+height: 69px;
+left: 10px;
+top: 6px;
+
+background: #20C5E9;
+box-shadow: 0px 4px 18px rgba(0, 0, 0, 0);
+}
+#header
+{
+position: absolute;
+height: 80px;
+left: 0px;
+top: 0px;
+
+background: #20C5E9;
+}
+#text-header
+{
+position: absolute;
+width: 406px;
+height: 46px;
+left: 501px;
+top: 20px;
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 35px;
+line-height: 48px;
+color: #000000;
+}
+#content-logo
+{
+	width:10%;
+	height:60%;
+	margin-left: 90%;
+	margin-top:2%;
+}
+#logo-reseaux_sociaux
+{
+	width:23%;
+	height: 100%;
+	position: relative;
+	display: inline-block;
+}
+/*Page Connexion*/
+#content
+{
+
+	width:60%;
+	height: 45%;
+	margin: auto;
+	
+}
+#content-login
+{
+width:30%;
+position: absolute;
+display: inline-block;
+height: 70%;
+top:17%;
+background: #FFFFFF;
+box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.25);
+}
+
+#content-header-login
+{
+position: relative;
+width: 60%;
+height: 20%;
+margin: auto;
+top: 33px;
+font-family: Palanquin Dark;
+font-style: normal;
+font-weight: bold;
+font-size: 30px;
+line-height: 87px;
+color: #20C5E9;
+}
+#trait-login
+{
+width: 100%;
+position: relative;
+margin:auto;
+font-style: normal;
+font-weight: normal;
+border:2px solid #20C5E9;
+bottom: 30%;
+right:3%;
+
+}
+
+.content-form
+{
+	width: 99%;
+	height: 70%;
+	display: inline-block;
+	position: relative;
+	margin-top: 5%;
+	padding: 3%;
+
+}
+#input
+{
+
+display: inline-block;
+width: 100%;
+height: 100%;
+padding: 2%;
+background: #FFFFFF;
+border-top: #FFFFFF;
+border-left: #FFFFFF;
+border-right: #FFFFFF;
+border-bottom: 2px solid #20C5E9;
+color:#20C5E9;
+font-family: Roboto;
+font-style: italic;
+font-weight: bold;
+font-size: 31.06px;
+display: inline-block;
+}
+
+#password
+{
+display: inline-block;
+width: 100%;
+height: 100%;
+padding: 2%;
+background: #FFFFFF;
+border-top: #FFFFFF;
+border-left: #FFFFFF;
+border-right: #FFFFFF;
+border-bottom: 2px solid #20C5E9;
+color:#20C5E9;
+font-family: Roboto;
+font-style: italic;
+font-weight: bold;
+font-size: 31.06px;
+display: inline-block;	
+}
+
+#deco-elipse
+{
+display: inline-block;
+position: absolute;
+width:18%;
+height: 70%;
+background: #20C5E9;
+border-radius: 100px;
+left: 77%;
+bottom: 25%;
+background-image: 100%;
+}
+#img-mail
+{
+position: absolute;
+left: 17%;
+top: 16%;
+}
+
+#img-cle
+{
+position: absolute;
+left: 15%;
+top: 4%;
+}
+#validation-form1
+{
+		
+	position: absolute;
+	width: 100%;
+	height: 27px;
+	color:red;
+	font-size: 20px;
+}
+#validation-form2
+{
+		
+	position:absolute;
+	width: 100%;
+	height: 27px;
+	color:red;
+	font-size: 20px;
+}
+
+#validation-form3
+{
+		
+	position: absolute;
+	width: 100%;
+	height: 27px;
+	color:red;
+	font-size: 20px;
+}
+
+#validation-form4
+{	
+	position:absolute;
+	width: 100%;
+	height: 27px;
+	color:red;
+	font-size: 20px;
+}
+
+#validation-form5
+{
+	position:absolute;
+	width: 100%;
+	height: 27px;
+	color:red;
+	font-size: 20px;
+}
+
+#content-bouton
+{
+	width:40%;
+	height: 60px;
+	margin: auto;
+	margin-top:10%; 
+}
+#bouton-valider
+{
+	width: 100%;
+	height: 100%;
+	background-color: #20C5E9;
+	color: white;
+	font-size: 30px;
+	font-weight: bold;
+	font-family: Roboto;
+	font-style: normal;
+
+}
+#link
+{
+	margin: auto;
+	text-align: center;
+	margin-top:10%;
+}
+
+#link-inscription
+{
+font-family: Roboto;
+font-style: italic;
+font-weight: 300;
+font-size: 27px;
+line-height: 35px;
+color: #20C5E9;
+mix-blend-mode: multiply;
+
+}
+
+#content-avatar
+{
+width:30%;
+position: absolute;
+height: 70%;
+left:50%;
+top: 17%;
+background: linear-gradient(180deg, #20C5E9 99.57%, rgba(40, 210, 248, 0) 100%);
+}
+
+#img-human1
+{
+position: absolute;
+left: 17%;
+top: 15%;
+bottom: 29.14%;
+}
+
+#pied
+{
+	
+	height:5%;
+	
+}
+
+#logo-SA
+{
+position:relative;
+width:73px;
+height:122px;
+}
+
+/* Page Connexion*/
+
+/* Page Inscription*/
+
+#content-inscription
+{
+	
+	width:70%;
+	height: 70%;
+	margin: auto;
+	margin-top:10%; 
+}
+
+/* Page Inscription*/
+
+#content-inscription-form
+{
+	position: absolute;
+	height: 75%;
+	width:40%;
+	box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.12);
+	display: inline-block;
+}
+
+#content-inscription-avatar
+{
+	
+	width: 30%;
+	background: #20C5E9;
+	height:75%;
+	position:absolute;
+	left: 55%;
+}
+
+
+.height-input
+{
+	width:90%;
+	height: 10%;
+	margin-top:5%;
+}
+
+#input-inscription1
+{
+background: rgba(77, 112, 120, 0.05);
+mix-blend-mode: normal;
+border-radius: 26px;
+border: none;
+width: 100%;
+height: 50px;
+margin-left:2%;
+color: #20C5E9;
+}
+#input-inscription2
+{
+background: rgba(77, 112, 120, 0.05);
+mix-blend-mode: normal;
+border-radius: 26px;
+border: none;
+width: 100%;
+height: 50px;
+margin-left:2%;
+color: #20C5E9;
+}
+#input-inscription3
+{
+background: rgba(77, 112, 120, 0.05);
+mix-blend-mode: normal;
+border-radius: 26px;
+border: none;
+width: 100%;
+height: 50px;
+margin-left:2%;
+color: #20C5E9;
+}
+#input-inscription4
+{
+background: rgba(77, 112, 120, 0.05);
+mix-blend-mode: normal;
+border-radius: 26px;
+border: none;
+width: 100%;
+height: 50px;
+margin-left:2%;
+color: #20C5E9;
+}
+#input-inscription5
+{
+background: rgba(77, 112, 120, 0.05);
+mix-blend-mode: normal;
+border-radius: 26px;
+border: none;
+width: 100%;
+height: 50px;
+margin-left:2%;
+color: #20C5E9;
+}
+
+#bouton-inscription
+{
+margin-left:27%;
+border:none;
+background: rgba(22, 150, 179, 0.49);
+mix-blend-mode: normal;
+border-radius: 26px;
+width:40%;
+height: 75%;
+cursor:pointer;
+font-family: Roboto;
+font-style: normal;
+font-weight: bolder;
+font-size: 22px;
+line-height: 30px;
+margin-top:5%; 
+color:#2F3676;
+}
+
+#bouton-img
+{
+margin-left:27%;
+border:none;
+background: rgba(22, 150, 179, 0.49);
+mix-blend-mode: normal;
+border-radius: 26px;
+width:40%;
+height: 20%;
+cursor:pointer;
+font-family: Roboto;
+font-style: normal;
+font-weight: bolder;
+font-size: 22px;
+line-height: 30px;
+margin-top:20%; 
+color:#2F3676;
+}
+
+#deco-elipse-inscription
+{
+width:80%;
+height: 65%;
+border-radius: 1010px;
+bottom: 25%;
+margin: auto;
+background-color:#56CCF2;
+margin-top:20%; 
+background-size:100%;
+background-repeat: no-repeat;
+}
+
+#avatar-inscription
+{
+	margin: auto;
+	margin-top: 18%;
+	margin-left: 16%;
+}

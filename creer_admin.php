@@ -1,64 +1,35 @@
-<?php 
-session_start();
-/*Paramétres de connexion à la Base de Données
-$username="fadel";
-$password="Mouhamadou1998";
-$host="mysql-fadel.alwaysdata.net";
-$dbname="fadel_bd_quizz";
-$conn=mysqli_connect($host,$username,$password,$dbname) or die('Erreur');
-*/
- ?>
-<!---------------------------------------------------------------------------------------->
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Page d'Insciption</title>
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-<link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+  	
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+	
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+	
+</script>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
-
 <body>
 
-		<div id="header" class="container-fluid">
-			<img src="Images Desktop/aperture.png" id="logo-projet">
-			<h1 id ="text-header">LE PLAISIR DE JOUER</h1>
-			<div id="content-logo">
-				<div id="logo-reseaux_sociaux">
-					<img src="Images Desktop/facebook.png">
-				</div>	
+	<div id="content-creer-admin">
 
-				<div id="logo-reseaux_sociaux">
-					<img src="Images Desktop/instagram.png">
-				</div>
+<form method="post" enctype="multipart/form-data" id="form-connexion">
 
-				<div id="logo-reseaux_sociaux">
-					<img src="Images Desktop/mail.png">
-				</div>
-
-			</div>
-
-		</div>
-
-		<div class="container-fluid">
+		<div id="form-creer-admin">
 			
-		
-<div id="content-inscription">
-
-<form id="form-connexion" method="post" enctype="multipart/form-data" class="form-group">
-
-	<div id="content-inscription-form">
-
-		<div class="height-input">
+			<div class="height-input">
 
 			<input type="text" name="prenom" placeholder="Prenom" id="input-inscription1">
 		
-		</div>
-		<div id="validation-form1">
+			</div>
+
+			<div id="validation-form1">
 						*
 					</div>	
 
@@ -109,26 +80,32 @@ $conn=mysqli_connect($host,$username,$password,$dbname) or die('Erreur');
 	
 	</div>
 
-	<div id="content-inscription-avatar">
 
-			<div id="deco-elipse-inscription">
+		</div>
+
+		<div id="creer-admin-avatar">
+
+			<div id="deco-elipse-admin">
 				<img  src="Images Desktop/humaaan.png" id="avatar-inscription">
 
 				<div id="input-file">
-
-				<input type="file" name="image" required="required">
-
-				</div>
 				
+					<input type="file" name="image" required="required">
+				
+				</div>
+
 			</div>
 	</div>
 
-
 </form>
-			
-</div>
-</div>
+
+	</div>
+
+</body>
+</html>
+
 <script type="text/javascript">
+
 var prenom=document.getElementById('input-inscription1');
 var nom=document.getElementById('input-inscription2');	
 var login=document.getElementById('input-inscription3');
@@ -198,7 +175,6 @@ form.addEventListener('submit',function(e){
 
 </script>
 
-
 <?php 
 	if (!empty($_POST["inscription"]))
 	{
@@ -235,7 +211,7 @@ form.addEventListener('submit',function(e){
 											{
 												unset($_POST["inscription"]);
 												unset($_POST["confirm"]);
-												$_POST["role"]="player";
+												$_POST["role"]="admin";
 												$_POST["image"]=$file_dest;
 												$_SESSION=$_POST;
 												echo "<script type='text/javascript'> alert('Enregistrement effectué avec succés'); 
@@ -245,11 +221,16 @@ form.addEventListener('submit',function(e){
 												exit();
 											}
 											else
+											{
 												echo "<script type='text/javascript'> alert('Erreur'); </script>";
+												exit();
+											}
 										}
 										else
-										echo "<script> alert('Le format de la photo doit etre PNG ou JPEG');</script>";
-
+										{
+											echo "<script> alert('Le format de la photo doit etre PNG ou JPEG');</script>";
+											exit();
+										}
 								}
 							}	
 						}		

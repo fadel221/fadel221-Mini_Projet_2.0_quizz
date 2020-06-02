@@ -61,15 +61,15 @@ $avatar=$row["avatar"];
 
 					<div id="content-avatar-menu">
 						
-						<div id="elipse-avatar-menu" style="background-image:url(<?php
-                    echo $avatar?>);">
+						<div id="elipse-avatar-menu" style="background-image:url('<?php
+                    echo $avatar?>'); background-size:100%; background-repeat: no-repeat;">
 							
 						</div>
 
 						<div id="name-avatar-menu">
-							<?php echo $_SESSION["prenom"].'<br>' 
+							<?php echo $_SESSION["prenom"].'<br>';
 									echo $_SESSION["nom"];
-							; ?>
+							?>
 						</div>
 
 					</div>
@@ -177,6 +177,7 @@ $avatar=$row["avatar"];
 
 			else
 			{
+			
 				require_once ("lister_joueurs.php");
 			}
 

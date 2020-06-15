@@ -13,7 +13,7 @@
     <div id="content-liste-player">
 
             <div id="header-liste-joueur">
-                    Liste Joueur
+                    Liste Admin
             </div>
 
             <div id="liste-player">
@@ -24,22 +24,23 @@
 	$password="Mouhamadou1998";
 	$host="mysql-fadhilou.alwaysdata.net";
 	$dbname="fadhilou_root";
+
     /*------------------- Tentative de connexion à la BD --------------------*/
 try
 {
     
   $conn=new PDO("mysql:host=$host;dbname=$dbname",$username,$password);
   $conn->setattribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-  $sql=$conn->prepare("SELECT Utilisateur.idUser,nom,prenom,valueScore,statut FROM Utilisateur,score WHERE Utilisateur.idUser=score.idUser ORDER BY valueScore DESC");
+  $sql=$conn->prepare("SELECT Utilisateur.idUser,nom,prenom,statut FROM Utilisateur WHERE Utilisateur.role='admin'");
   $sql->execute();
   echo "<table cellspacing='20px' cellpadding='30px'>";
-  echo "<td>PRENOM</td><td>NOM</td><td>SCORE</td><td>STATUT</td><td>SUPPRIMER</td><td>BLOQUER</td><td>DEBLOQUER</td>";
+  echo "<td>PRENOM</td><td>NOM</td><td>STATUT</td><td>SUPPRIMER</td><td>BLOQUER</td><td>DEBLOQUER</td>";
   if($sql)
   {		
     foreach($sql as $row)
     {
     echo "<tr>";
-        echo "<td>".$row['prenom']."</td>"." <td>".$row["nom"]."</td>"." <td>".$row["valueScore"]."</td><td>".$row['statut']."</td><td><a id='delete' href='delete.php?delete=".$row['idUser']."&function=delete'>Delete</a></td><td><a id='bloque' href='bloquer.php?bloquer=".$row['idUser']."&function=bloquer'>Bloquer</a></td><td><a id='debloque' href='debloquer.php?debloquer=".$row['idUser']."&function=debloquer'>Debloquer</a></td>";    
+        echo "<td>".$row['prenom']."</td>"." <td>".$row["nom"]."</td>"."<td>".$row['statut']."</td><td><a id='delete' href='delete.php?delete=".$row['idUser']."&function=delete'>Delete</a></td><td><a id='bloque' href='bloquer.php?bloquer=".$row['idUser']."&function=bloquer'>Bloquer</a></td><td><a id='debloque' href='debloquer.php?debloquer=".$row['idUser']."&function=debloquer'>Debloquer</a></td>";    
     echo "</tr>";
   }
 echo "</table>";
@@ -98,7 +99,7 @@ catch (PDOEXCEPTION $e)
         {
           $.get('debloquer.php',{idUser:idUser},function(){
           alert('Déloquage effectué');
-          $('body').load('menu_admin.php');
+          $('menu_admin/#content-page').load('lister_admin.php');
         })
   }
   })

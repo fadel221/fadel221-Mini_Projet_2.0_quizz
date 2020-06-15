@@ -1,18 +1,40 @@
+<?php 
+$username="fadhilou";
+$password="Mouhamadou1998";
+$host="mysql-fadhilou.alwaysdata.net";
+$dbname="fadhilou_root";
+
+					/*------------------- Tentative de connexion à la BD --------------------*/
+
+try
+{
+	
+	$conn=new PDO("mysql:host=$host;dbname=$dbname",$username,$password);
+	$conn->setattribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+
+}
+					/*------------------- Tentative de connexion à la BD --------------------*/
+						
+
+catch (PDOEXCEPTION $e)
+{
+	 echo "Erreur ".$e->getMessage();
+}
+
+
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-  	
-  </script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-	
-</script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
-	
-</script>
+  <script src="jquery-3.5.1.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -90,7 +112,7 @@
 
 				<div id="input-file">
 				
-					<input type="file" name="image" required="required">
+					<input type="file" name="image" required="required" id="image">
 				
 				</div>
 
@@ -104,82 +126,89 @@
 </body>
 </html>
 
-<script type="text/javascript">
-
-var prenom=document.getElementById('input-inscription1');
-var nom=document.getElementById('input-inscription2');	
-var login=document.getElementById('input-inscription3');
-var password=document.getElementById('input-inscription4');
-var confirm=document.getElementById('input-inscription5')
-var form=document.getElementById('form-connexion');
-var error_login=document.getElementById('validation-form3');
-var error_pwd=document.getElementById('validation-form4');
-var error_prenom=document.getElementById('validation-form1');
-var error_nom=document.getElementById('validation-form2');
-var error_confirm=document.getElementById('validation-form5');
-
-form.addEventListener('submit',function(e){
-		if (login.value.trim()=='')
+<script>
+var prenom=$('#input-inscription1');
+var nom=$('#input-inscription2');	
+var login=$('#input-inscription3');
+var password=$('#input-inscription4');
+var confirm=$('#input-inscription5')
+var error_login=$('#validation-form3');
+var error_pwd=$('#validation-form4');
+var error_prenom=$('#validation-form1');
+var error_nom=$('#validation-form2');
+var error_confirm=$('#validation-form5');
+var image=$('#image').prop('files')[0];
+$('form').submit(function(e)
+{
+	e.preventDefault();
+		if (login.val().trim()=='')
 		{
 		
-			error_login.textContent='Champ Obligatoire';
-			e.preventDefault();
+			error_login.text('Champ Obligatoire');
+			
 		}
 		else
 		{
-			error_login.textContent='';
+			error_login.text('');
 		}
-		if (password.value.trim()=='')
+		if (password.val().trim()=='')
 		{
-			error_pwd.textContent='Champ Obligatoire';
-			e.preventDefault();
+			error_pwd.text('Champ Obligatoire');
+			
 		}
 		else{
-			error_pwd.textContent='';
+			error_pwd.text('');
 			}
-		if (prenom.value.trim()=='')
+		if (prenom.val().trim()=='')
 		{
-			e.preventDefault();
-			error_prenom.textContent='Champ Obligatoire';
+			
+			error_prenom.text('Champ Obligatoire');
 		}
 		else
 		{
-			error_prenom.textContent='';
+			error_prenom.text('');
 		}
-		if (nom.value.trim()=='')
+		if (nom.val().trim()=='')
 		{
-			e.preventDefault();
-			error_nom.textContent='Champ Obligatoire';
-		}
-		else
-		{
-			error_nom.textContent='';
-		}
-		if (confirm.value.trim()=='')
-		{
-			e.preventDefault();
-			error_confirm.textContent='Champ Obligatoire';
+			
+			error_nom.text('Champ Obligatoire');
 		}
 		else
 		{
-			error_confirm.textContent='';
+			error_nom.text('');
+		}
+		if (confirm.val().trim()=='')
+		{
+			
+			error_confirm.text('Champ Obligatoire');
+		}
+		else
+		{
+			error_confirm.text('');
 		}
 
-		if (password.value.trim()!=confirm.value.trim())
+		if (password.val().trim()!=confirm.val().trim())
 		{
-			error_confirm.textContent='Mot de passe différent';
-			e.preventDefault();
+			error_confirm.text('Mot de passe différent');
+			
 		}
+	
 
+	$.post('creer_admin.php',
+	{prenom:prenom.val(),nom:nom.val(),login:login.val(),password:password.val(),confirm:confirm.val()},
+	function(){
+		alert('Enregistrement fait avec succés <3');	
+		
+	})
 })
 
 </script>
 
 <?php 
-	if (!empty($_POST["inscription"]))
-	{
+
 		if (isset($_POST["prenom"]) && !empty ($_POST["prenom"]))
 		{
+			
 				if (isset($_POST["nom"]) && !empty ($_POST["nom"]))
 			{
 					if (isset($_POST["login"]) && !empty ($_POST["login"]))
@@ -190,53 +219,37 @@ form.addEventListener('submit',function(e){
 							{
 								if ($_POST["password"]==$_POST["confirm"])
 								{
-									if (isset($_FILES["image"]) && !empty($_FILES["image"]))
-									{
-										$file_name=$_FILES["image"]["name"];
-	             						$file_extension=strrchr($file_name, ".");
-	            						$extensions_autorisés=array(".PNG",".png",".JPEG",".jpeg");
-	                    				if (in_array($file_extension,$extensions_autorisés))
-	                 					{
-							                $file_tmp_name=$_FILES["image"]["tmp_name"];
-							                $file_dest="Images Profils/"."".$file_name;   
-							                move_uploaded_file($file_tmp_name,$file_dest);
+								
+				
+									
 							                $prenom=$_POST["prenom"];
 							                $nom=$_POST["nom"];
 							                $login=$_POST["login"];
 							                $password=$_POST["password"];
-							                $role="player";
-							                $query = "INSERT INTO `Utilisateur` (`idUser`, `login`, `prenom`, `nom`, `password`, `avatar`, `role`) VALUES (NULL,'$login','$prenom','$nom','$password','$file_dest','$role')";
-											$result=mysqli_query($conn,$query);
-											if($result===true)
+							                $role="admin";
+							                $query = "INSERT INTO Utilisateur (idUser, login, prenom, nom, password, avatar, role,statut) VALUES (NULL,'$login','$prenom','$nom','$password','Images Profiles/Anime32.png','$role','autorise')";
+											$sql=$conn->prepare($query);
+											$sql->execute();
+											if ($sql!="FALSE")
 											{
 												unset($_POST["inscription"]);
 												unset($_POST["confirm"]);
 												$_POST["role"]="admin";
-												$_POST["image"]=$file_dest;
+												
 												$_SESSION=$_POST;
-												echo "<script type='text/javascript'> alert('Enregistrement effectué avec succés'); 
-													document.location.href='index.php';
-
-												</script>";
 												exit();
 											}
 											else
-											{
-												echo "<script type='text/javascript'> alert('Erreur'); </script>";
-												exit();
-											}
-										}
-										else
-										{
-											echo "<script> alert('Le format de la photo doit etre PNG ou JPEG');</script>";
-											exit();
-										}
+												echo "<script> alert('Erreur'); </script>";
+										
+
 								}
 							}	
 						}		
 					}	
 				}					
 			}
-		}
-	}
+		
+		
+	
  ?>

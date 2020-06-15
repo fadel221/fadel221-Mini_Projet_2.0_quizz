@@ -14,7 +14,7 @@
         if (isset ($_GET['idUser']) && !empty($_GET['idUser']))
         {
             $id=$_GET['idUser'];
-            $query="UPDATE `Utilisateur` SET `statut` ='bloque' WHERE `Utilisateur`.`idUser` ='$id'; ";
+            $query="UPDATE `Utilisateur` SET `statut` ='bloque' WHERE `Utilisateur`.`idUser` ='$id'";
             $sql=$conn->prepare($query);
             $resultat=$sql->execute();
         }

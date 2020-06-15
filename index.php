@@ -181,7 +181,7 @@ if (!empty($_POST["login"]) && !empty($_POST["password"]) && isset($_POST["login
 			else
 				if ($row['statut']!='autorise')
 				{
-					echo '<script> alert("Vous avez été bloqué par l\'admin") </script>';
+					echo '<script> alert("Soit votrre compte n\'existe pas ou vous avez été bloqué par l\'admin") </script>';
 				}
 		}
 
